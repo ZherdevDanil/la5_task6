@@ -11,12 +11,18 @@ function applyChanges() {
     const size = sizeInput.value + 'px';
     const loop = loopCheckbox.checked;
 
-    intervalId = setInterval(() => {
-        currentIndex = loop ? (currentIndex % 5) + 1 : currentIndex === 5 ? 1 : currentIndex + 1;
+    if (loop) {
+        intervalId = setInterval(() => {
+            currentIndex = currentIndex === 5 ? 1 : currentIndex + 1;
+            slideshowImg.src = `images/img${currentIndex}.jpg`;
+            slideshowImg.style.width = size;
+        }, interval);
+    } else {
         slideshowImg.src = `images/img${currentIndex}.jpg`;
         slideshowImg.style.width = size;
-    }, interval);
+    }
 }
 
-// Initial application of settings
+document.querySelector('button').addEventListener('click', applyChanges);
+
 applyChanges();
