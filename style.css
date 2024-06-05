@@ -27,3 +27,8 @@ body {
 .controls input[type="checkbox"] {
     margin-right: 5px;
 }
+
+div{
+    margin: 0px;
+    padding: 0px;
+}
